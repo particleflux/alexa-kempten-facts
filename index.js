@@ -1,5 +1,3 @@
-/* eslint-disable  func-names */
-/* eslint quote-props: ["error", "consistent"]*/
 /**
  * This sample demonstrates a simple skill built with the Amazon Alexa Skills
  * nodejs skill development kit.
@@ -11,7 +9,6 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
-
 const APP_ID = 'amzn1.ask.skill.fad17529-17ec-440c-843e-02e1e625183e';
 
 const languageStrings = {
@@ -89,7 +86,7 @@ const handlers = {
 
 exports.handler = (event, context) => {
     const alexa = Alexa.handler(event, context);
-    alexa.APP_ID = APP_ID;
+    alexa.appId = APP_ID;
     alexa.resources = languageStrings;
     alexa.registerHandlers(handlers);
     alexa.execute();
