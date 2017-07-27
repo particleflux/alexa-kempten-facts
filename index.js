@@ -33,7 +33,7 @@ const handlers = {
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = this.t('HELP_MESSAGE');
-        const reprompt = this.t('HELP_REPROMPT');
+        const reprompt = this.t('HELP_MESSAGE');
         this.emit(':ask', speechOutput, reprompt);
     },
     'AMAZON.CancelIntent': function () {
