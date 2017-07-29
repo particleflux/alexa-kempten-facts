@@ -28,7 +28,7 @@ for (let i = 0; i < supportedLocales.length; ++i) {
         for (let i = 0; i < facts.length; i++) {
             if (suspectedFact === '<speak> ' + context.t('GET_FACT_MESSAGE') + facts[i] + ' </speak>') return;
         }
-        context.assert({ message: '\'' + suspectedFact + '\' is not a kempten fact.' });
+        context.assert({message: '\'' + suspectedFact + '\' is not a kempten fact.'});
     };
 
     describe('Kempten Fact Skill (' + locale + ')', function () {
@@ -36,7 +36,9 @@ for (let i = 0; i < supportedLocales.length; ++i) {
         describe('LaunchRequest', function () {
             alexaTest.test([
                 {
-                    request: alexaTest.getLaunchRequest(), shouldEndSession: true, repromptsNothing: true,
+                    request: alexaTest.getLaunchRequest(),
+                    shouldEndSession: true,
+                    repromptsNothing: true,
                     saysCallback: assertIfNotFact
                 }
             ]);
@@ -47,7 +49,9 @@ for (let i = 0; i < supportedLocales.length; ++i) {
             alexaTest.test([
                 {
                     request: alexaTest.getIntentRequest('GetNewFactIntent'),
-                    saysCallback: assertIfNotFact, shouldEndSession: true, repromptsNothing: true,
+                    saysCallback: assertIfNotFact,
+                    shouldEndSession: true,
+                    repromptsNothing: true,
                     hasCardTitle: alexaTest.t('SKILL_NAME')
                 }
             ]);
@@ -58,11 +62,15 @@ for (let i = 0; i < supportedLocales.length; ++i) {
             alexaTest.test([
                 {
                     request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                    says: alexaTest.t('HELP_MESSAGE'), shouldEndSession: false, reprompts: alexaTest.t('HELP_MESSAGE')
+                    says: alexaTest.t('HELP_MESSAGE'),
+                    shouldEndSession: false,
+                    reprompts: alexaTest.t('HELP_MESSAGE')
                 },
                 {
                     request: alexaTest.getIntentRequest('GetNewFactIntent'),
-                    saysCallback: assertIfNotFact, shouldEndSession: true, repromptsNothing: true
+                    saysCallback: assertIfNotFact,
+                    shouldEndSession: true,
+                    repromptsNothing: true
                 }
             ]);
         });
@@ -70,11 +78,15 @@ for (let i = 0; i < supportedLocales.length; ++i) {
             alexaTest.test([
                 {
                     request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                    says: alexaTest.t('HELP_MESSAGE'), shouldEndSession: false, reprompts: alexaTest.t('HELP_MESSAGE')
+                    says: alexaTest.t('HELP_MESSAGE'),
+                    shouldEndSession: false,
+                    reprompts: alexaTest.t('HELP_MESSAGE')
                 },
                 {
                     request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                    says: alexaTest.t('STOP_MESSAGE'), shouldEndSession: true, repromptsNothing: true
+                    says: alexaTest.t('STOP_MESSAGE'),
+                    shouldEndSession: true,
+                    repromptsNothing: true
                 }
             ]);
         });
@@ -82,11 +94,15 @@ for (let i = 0; i < supportedLocales.length; ++i) {
             alexaTest.test([
                 {
                     request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                    says: alexaTest.t('HELP_MESSAGE'), shouldEndSession: false, reprompts: alexaTest.t('HELP_MESSAGE'),
+                    says: alexaTest.t('HELP_MESSAGE'),
+                    shouldEndSession: false,
+                    reprompts: alexaTest.t('HELP_MESSAGE'),
                 },
                 {
                     request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                    says: alexaTest.t('STOP_MESSAGE'), shouldEndSession: true, repromptsNothing: true
+                    says: alexaTest.t('STOP_MESSAGE'),
+                    shouldEndSession: true,
+                    repromptsNothing: true
                 }
             ]);
         });
@@ -96,7 +112,9 @@ for (let i = 0; i < supportedLocales.length; ++i) {
             alexaTest.test([
                 {
                     request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                    says: alexaTest.t('STOP_MESSAGE'), shouldEndSession: true, repromptsNothing: true
+                    says: alexaTest.t('STOP_MESSAGE'),
+                    shouldEndSession: true,
+                    repromptsNothing: true
                 }
             ]);
         });
@@ -106,9 +124,20 @@ for (let i = 0; i < supportedLocales.length; ++i) {
             alexaTest.test([
                 {
                     request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                    says: alexaTest.t('STOP_MESSAGE'), shouldEndSession: true, repromptsNothing: true
+                    says: alexaTest.t('STOP_MESSAGE'),
+                    shouldEndSession: true,
+                    repromptsNothing: true
                 }
             ]);
+        });
+
+        describe('session end', function () {
+            alexaTest.test([{
+                request: alexaTest.getSessionEndedRequest('USER_INITIATED'),
+                says: alexaTest.t('STOP_MESSAGE'),
+                shouldEndSession: true,
+                repromptsNothing: true
+            }]);
         });
     });
 }
