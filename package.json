@@ -6,7 +6,8 @@
   "scripts": {
     "test": "nyc mocha",
     "test:CI": "nyc mocha && nyc report --reporter=lcov",
-    "invoke": "node-lambda run"
+    "invoke": "node-lambda run",
+    "deploy": "node-lambda deploy"
   },
   "keywords": [
     "alexa",
