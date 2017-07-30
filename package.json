@@ -6,8 +6,12 @@
   "scripts": {
     "test": "nyc mocha",
     "test:CI": "nyc mocha && nyc report --reporter=lcov",
-    "invoke": "node-lambda run",
-    "deploy": "node-lambda deploy"
+    "invoke": "node-lambda run --handler dist/index.handler",
+    "lambda": "node-lambda",
+    "deploy": "node-lambda deploy --handler index.handler --prebuiltDirectory dist",
+    "package": "node-lambda package --handler index.handler --prebuiltDirectory dist",
+    "predeploy": "NODE_ENV=production webpack -p",
+    "prepackage": "NODE_ENV=production webpack -p"
   },
   "keywords": [
     "alexa",
@@ -22,8 +26,13 @@
   },
   "devDependencies": {
     "alexa-skill-test-framework": "^1.1.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.24.1",
+    "json-loader": "^0.5.7",
     "mocha": "^3.4.2",
     "node-lambda": "^0.11.3",
-    "nyc": "^11.0.3"
+    "nyc": "^11.0.3",
+    "webpack": "^3.4.1"
   }
 }
