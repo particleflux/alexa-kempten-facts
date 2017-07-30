@@ -1,5 +1,5 @@
 {
-  "name": "alexa-kempten-facts",
+  "name": "alexa-skill-kempten-facts",
   "version": "1.0.0",
   "description": "Alexa fact/trivia skill for Kempten",
   "main": "index.js",
