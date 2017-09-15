@@ -10,3 +10,6 @@ engines:
         - javascript:
     exclude_paths:
         - "test/"
+ratings:
+   paths:
+   - "index.js"
