@@ -4,6 +4,7 @@ const path = require('path');
 const pkg = require('./package.json');
 
 module.exports = {
+    mode: 'production',
     entry: path.resolve(__dirname, pkg.main),
     output: {
         path: path.join(__dirname, 'dist'),
@@ -13,20 +14,10 @@ module.exports = {
     target: 'node',
     externals: ['aws-sdk'],
     module: {
-        /**
-         * Tell webpack how to load JSON files.
-         * When webpack encounters a 'require()' statement
-         * where a JSON file is being imported, it will use
-         * the json-loader
-         */
-        loaders: [
+        rules: [
             {
                 test:/\.js$/,
                 loader:'babel-loader'
-            },
-            {
-                test: /\.json$/,
-                loaders: ['json-loader']
             }
         ]
     }

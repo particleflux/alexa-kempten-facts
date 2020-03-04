@@ -25,8 +25,9 @@ for (let i = 0; i < supportedLocales.length; ++i) {
     // callback function that asserts if the provided string is not a fact from the list
     const assertIfNotFact = function (context, suspectedFact) {
         const facts = context.t('FACTS');
+
         for (let i = 0; i < facts.length; i++) {
-            if (suspectedFact === '<speak> ' + context.t('GET_FACT_MESSAGE') + facts[i] + ' </speak>') return;
+            if (suspectedFact === '<speak>' + context.t('GET_FACT_MESSAGE') + facts[i] + '</speak>') return;
         }
         context.assert({message: '\'' + suspectedFact + '\' is not a kempten fact.'});
     };

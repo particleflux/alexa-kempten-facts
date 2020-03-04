@@ -22,17 +22,19 @@
   "author": "Stefan Linke <particleflux@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "alexa-sdk": "^1.0.11"
+    "ask-sdk": "^2.7.0",
+    "ask-sdk-v1adapter": "^2.7.0"
   },
   "devDependencies": {
-    "alexa-skill-test-framework": "^1.1.0",
+    "alexa-skill-test-framework": "^1.2.4",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-latest": "^6.24.1",
     "json-loader": "^0.5.7",
-    "mocha": "^3.4.2",
-    "node-lambda": "^0.11.3",
-    "nyc": "^11.0.3",
-    "webpack": "^3.4.1"
+    "mocha": "^7.1.0",
+    "node-lambda": "^0.16.0",
+    "nyc": "^15.0.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }

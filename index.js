@@ -8,7 +8,7 @@
 
 'use strict';
 
-const Alexa = require('alexa-sdk');
+const Alexa = require('ask-sdk-v1adapter');
 const APP_ID = 'amzn1.ask.skill.fad17529-17ec-440c-843e-02e1e625183e';
 
 const languageStrings = require('./i18n.json');
